@@ -29,6 +29,14 @@ let protagonista = function(x, y){
     this.dibuja=function(){
         ctx.drawImage(imgRex, this.x, this.y);
     }
+    this.texto=function(){
+        ctx.font='30px impact';
+        ctx.fillStyle='#555555';
+        ctx.fillText('X: '+ this.x, 100,100);
+    }
+
+
+
     this.arriba=function(){
         this.y-=this.velocidad;
     }
@@ -56,6 +64,11 @@ let personaje = function(x,y){
         ctx.fillStyle='#FF0000';
         ctx.fillRect(this.x, this.y, 50, 50);
     }
+
+    
+
+
+
     this.mueve=function(velocidad){
         if(this.derecha==true){
             if(this.x<400){
@@ -95,12 +108,14 @@ function principal(){
     per3.mueve(7);
 
     prota.dibuja(); 
+    prota.texto();
     // console.log('funcion');
 
 }
 let per1=new personaje(10,50);
 let per2=new personaje(10,120);
 let per3=new personaje(10,230);
+
 
 
 document.addEventListener('keydown', function(tecla){
